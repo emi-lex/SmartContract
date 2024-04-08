@@ -31,8 +31,7 @@ contract PoetryPublisher is ERC721 {
 
     function returnNFT(uint256 _tokenId) external {
         require(msg.sender == poems[_tokenId].author, "Only author can return NFT");
-        require(_exists(_tokenId), "Query for nonexistent token"
-        );
+        require(_exists(_tokenId), "This token does not exist");
         _burn(_tokenId);
         delete poems[_tokenId];
     }
